@@ -84,7 +84,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        //Find the post in the db and save it as a variable
+        $post = Post::find($id);
+        //return the view and pass in new information
+        return view('posts.edit')->withPost($post);
     }
 
     /**
@@ -96,7 +99,24 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //accept information from the form field data
+        //Validate it
+        $this->validate($request, array(
+            // https://laravel.com/docs/5.4/validation#form-request-validation
+            'title' => 'required|max:255',
+            'body' => 'required'
+            ));
+        //save in the db
+        $post = Post::find($id);
+
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+
+        $post->save();
+        //set flash data with success message
+        Session::flash('success', 'This post was successfully saved.');
+        //redirect with flash data to posts.show
+        return redirect()->route('posts.show', $post->id);
     }
 
     /**
