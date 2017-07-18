@@ -29,8 +29,14 @@
 					{!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'DELETE']) !!}
 
 					{!! Form::submit('Delete', ['class' => 'btn btn-danger btn-block']) !!}
-					
+
 					{!! Form::close() !!}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+				<hr>
+					{{ Html::linkRoute('posts.index', '<< See All Posts', [], ['class' => 'btn btn-default btn-block']) }}
 				</div>
 			</div>
 		</div>
