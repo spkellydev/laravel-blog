@@ -10,6 +10,8 @@
 	</div>
 	<div class="col-md-4">
 		<div class="well">
+		<label>URL:</label>
+		<a href="{{ url('blog/'.$post->slug) }}">{{ url('blog/'.$post->slug) }}</a>
 			<dl class="dl-horizontal">
 				<dt>
 					Created At:
