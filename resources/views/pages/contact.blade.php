@@ -10,7 +10,8 @@
           </div> <!-- end of jumbrotron -->
         </div> <!-- end of columns -->
       </div> <!-- end of row -->
-      <form>
+      <form action="{{ url('contact') }}" method="POST">
+      {{ csrf_field() }}
           <div class="form-group">
             <label name="email">Email:</label>
             <input type="email" name="email" class="form-control" id="id">
