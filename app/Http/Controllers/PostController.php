@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 //Use the post model
 use App\Post;
+//Add categories + Tags
+use App\Category;
+use App\Tag;
 //add flash session items
 use Session;
 
@@ -36,7 +39,9 @@ class PostController extends Controller
     public function create()
     {
         //Use view to create a post in the post folder
-        return view('posts.create');
+        $categories = Category::all();
+        $tags = Tag::all();
+        return view('posts.create')->withCatgories($categories)->withTags($tags);
     }
 
     /**
@@ -47,11 +52,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         //validate the data
         $this->validate($request, array(
             // https://laravel.com/docs/5.4/validation#form-request-validation
             'title' => 'required|max:255',
             'slug' => 'required|alpha_dash|min:3|max:255|unique:posts,slug',
+            'category_id' => 'required|integer',
             'body' => 'required'
             ));
         //push to database
@@ -59,9 +66,13 @@ class PostController extends Controller
 
         $post->title = $request->title;
         $post->slug = $request->slug;
+        $post->category_id = $request->category_id;
+
         $post->body = $request->body;
 
         $post->save();
+
+        $post->tags()->sync($request->tags, false);
         //redirect to another page
         Session::flash('success', 'The blog posted was successfully saved!');
 
@@ -91,8 +102,15 @@ class PostController extends Controller
     {
         //Find the post in the db and save it as a variable
         $post = Post::find($id);
+        $categories = Category::pluck('name','id');
+
+        $tags = Tag::all();
+        $tagsArr = array();
+        foreach ($tags as $tag) {
+            $tagsArr[$tag->id] = $tag->name;
+        }
         //return the view and pass in new information
-        return view('posts.edit')->withPost($post);
+        return view('posts.edit')->withPost($post)->withCategories($categories)->withTags($tagsArr);
     }
 
     /**
@@ -111,6 +129,7 @@ class PostController extends Controller
             $this->validate($request, array(
                 // https://laravel.com/docs/5.4/validation#form-request-validation
                 'title' => 'required|max:255',
+                'category_id' => 'required|integer',
                 'body' => 'required'
                 ));
         } else  {     
@@ -118,6 +137,7 @@ class PostController extends Controller
                // https://laravel.com/docs/5.4/validation#form-request-validation
                'title' => 'required|max:255',
                'slug' => 'required|alpha_dash|min:3|max:255|unique:posts,slug',
+               'category_id' => 'required|integer',
                'body' => 'required'
                ));
         }
@@ -126,9 +146,17 @@ class PostController extends Controller
 
         $post->title = $request->input('title');
         $post->slug = $request->input('slug');
+        $post->category_id = $request->input('category_id');
         $post->body = $request->input('body');
 
         $post->save();
+        if (isset($request->tags))
+        {
+            $post->tags()->sync($request->tags, true);
+        } else {
+            $post->tags()->sync(array());
+        }
+
         //set flash data with success message
         Session::flash('success', 'This post was successfully saved.');
         //redirect with flash data to posts.show
@@ -145,6 +173,7 @@ class PostController extends Controller
     {
         //find the item to delete
         $post = Post::find($id);
+        $post->tags()->detach();
 
         //Use eloquent to delete the item
         $post->delete();

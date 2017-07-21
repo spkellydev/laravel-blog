@@ -1,6 +1,9 @@
 @extends('main')
 
 @section('title', 'Edit Post')
+@section('stylesheets')
+	{!! Html::style('./css/parsley.css') !!}
+	{!! Html::style('./css/select2.min.css') !!}
 
 @section('content')
 <div class="row">
@@ -11,6 +14,12 @@
 
 		{{ Form::label('slug', 'Slug: ') }}
 		{{ Form::text('slug', null, ["class" => 'form-control input-lg']) }}
+
+		{{ Form::label('category_id', 'Category:')}}
+		{{ Form::select('category_id', $categories, null, ['class' => 'form-control']) }}
+
+		{{ Form::label('tags', 'Tags:', ['class' => 'form-spacing-top']) }}
+		{{ Form::select('tags[]', $tags, null, ['class' => 'form-control select2-multi', 'multiple' => 'multiple']) }}
 
 		{{ Form::label('body', 'Body: ') }}
 		{{ Form::textarea('body', null, ['class' => 'form-control']) }}
@@ -40,4 +49,13 @@
 	</div>
 	{!! Form::close() !!}
 </div>
+@endsection
+
+@section('scripts')
+	{!! Html::script('./js/parsley.min.js') !!}
+	{!! Html::script('./js/select2.min.js') !!}
+	<script type="text/javascript">
+		$('.select2-multi').select2();
+		$('.select2-multi').select2().val({!! json_encode($post->tags()->allRelatedIds()) !!}).trigger('change');
+	</script>
 @endsection

@@ -7,11 +7,24 @@
 	<div class="col-md-8">
 		<h1>{{ $post->title }}</h1>
 		<p class="lead">{{ $post->body }}</p>
+		<hr>
+		<div class="tags">
+			@foreach ($post->tags as $tag)
+				<span class="label label-default">{{ $tag->name }}</span>
+			@endforeach
+		</div>
+		
+
+
 	</div>
 	<div class="col-md-4">
 		<div class="well">
 		<label>URL:</label>
 		<a href="{{ url('blog/'.$post->slug) }}">{{ url('blog/'.$post->slug) }}</a>
+			<dl class="dl-horizontal">
+				<label>Category:</label>
+				<p>{{ $post->category->name }}</p>
+			</dl>
 			<dl class="dl-horizontal">
 				<dt>
 					Created At:
