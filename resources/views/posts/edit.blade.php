@@ -4,6 +4,16 @@
 @section('stylesheets')
 	{!! Html::style('./css/parsley.css') !!}
 	{!! Html::style('./css/select2.min.css') !!}
+	<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+	<script>
+		tinymce.init({
+			selector: 'textarea',
+			browser_spellcheck: true,
+			plugins: 'link image imagetools lists',
+			menubar: 'false',
+			branding: 'false'
+		});
+	</script>
 
 @section('content')
 <div class="row">

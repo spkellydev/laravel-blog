@@ -6,6 +6,17 @@
 	{!! Html::style('./css/parsley.css') !!}
 	{!! Html::style('./css/select2.min.css') !!}
 
+	<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+	<script>
+		tinymce.init({
+			selector: 'textarea',
+			plugins: 'link image imagetools lists',
+			menubar: 'false',
+			branding: 'false',
+			browser_spellcheck: true
+		});
+	</script>
+
 @endsection
 
 @section('content')
@@ -18,7 +29,7 @@
 			{!! Form::open(['route' => 'posts.store', 'data-parsley-validate' => '']) !!}
 			    {{ Form::label('title', 'Title:') }}
 			    {{ Form::text('title', null, array('class' => 'form-control', 'placeholder' => 'Your Title', 'required', 'maxlength'=>'255') )}}
-			    <div class="col-md-6" style="padding: 0">
+			    <div class="col-md-12" style="padding: 0">
 			    {{ Form::label('slug', 'Slug:')}}
 			    {{ Form::text('slug', null, array('class' => 'form-control', 'required', 'minlength' => '3', 'maxlength' => '255')) }}
 			    </div>
@@ -29,6 +40,8 @@
 			    		<option value="{{ $category->id }}">{{ $category->name }}</option>
 			    	@endforeach
 			    </select>
+			    </div>
+			    <div class="col-md-6" style="padding: 0">
 			    {{ Form::label('tags', 'Tags:')}}
 			    <select class="form-control select2-multi" name="tags[]" multiple="multiple">
 			    	@foreach ($tags as $tag)
@@ -37,7 +50,7 @@
 			    </select>
 			    </div>
 			    {{ Form::label('body', "Post Body:" ) }}
-			    {{ Form::textarea('body', null, array('class' => 'form-control', 'placeholder' => 'Happy Blogging!', 'required') ) }}
+			    {{ Form::textarea('body', null, array('class' => 'form-control', 'placeholder' => 'Happy Blogging!') ) }}
 			    {{ Form::submit('Create Post', array('class' => 'btn btn-success btn-lg btn-block') ) }}
 			{!! Form::close() !!}
 		</div>
