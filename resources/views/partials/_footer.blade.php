@@ -1,1 +1,1 @@
-<footer class="text-center">Copyright 2017 SPk.Design</footer>
+<footer class="text-center">Copyright 2017 SPK.Design</footer>

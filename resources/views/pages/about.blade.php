@@ -21,6 +21,6 @@
       		<p>Well. At work, I use Wordpress for nearly every client. My goal is to become proficient enough at PHP to help out with Wordpress developement at work, and take on some extra responsibilies. I have a Wordpress site of my own where I am learning to create a theme using Underscores. That site is based on the LAMP stack -- yes, everything is a little all over the place. With exception to the server though, most of my learning is universal. So the Wordpress develpment is the catalyst for the Laravel development. Currently, I'm not prepared to share the URL, but it is in the works!</p>
       		<footer>Hopefully that puts some things into perspective! Somehow there's never enough time. Onward with the LEMP stack!</footer>
       	</article>
-      	<footer>Updated July 2017</footer>
+      	<footer class="col-md-3">Updated July 2017</footer>
       </section>
 @endsection
