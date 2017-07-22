@@ -10,6 +10,7 @@
           </div> <!-- end of jumbrotron -->
         </div> <!-- end of columns -->
       </div> <!-- end of row -->
+      <h3>My mail server is Mailtrap, so if you send me something -- I won't get it!</h3>
       <form action="{{ url('contact') }}" method="POST">
       {{ csrf_field() }}
           <div class="form-group">
