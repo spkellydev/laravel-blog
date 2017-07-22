@@ -28,7 +28,7 @@
         @endforeach
         </div>
         <div class="col-md-3 col-md-offset-1">
-            <h2>Sidebar</h2>
+            <h2>Featured Project</h2>
         </div>
       </div>
 @endsection
