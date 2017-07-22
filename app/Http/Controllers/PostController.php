@@ -9,6 +9,9 @@ use App\Post;
 //Add categories + Tags
 use App\Category;
 use App\Tag;
+use Purifier;
+use Image;
+use Storage;
 //add flash session items
 use Session;
 
@@ -59,7 +62,8 @@ class PostController extends Controller
             'title' => 'required|max:255',
             'slug' => 'required|alpha_dash|min:3|max:255|unique:posts,slug',
             'category_id' => 'required|integer',
-            'body' => 'required'
+            'body' => 'required',
+            'featured_image' => 'sometimes|image'
             ));
         //push to database
         $post = new Post;
@@ -68,7 +72,18 @@ class PostController extends Controller
         $post->slug = $request->slug;
         $post->category_id = $request->category_id;
 
-        $post->body = $request->body;
+        //Purifier for WYSIWIG
+        $post->body = Purifier::clean($request->body);
+
+        //Save Featured Image
+        if ($request->hasFile('featured_image')) {
+            $image = $request->file('featured_image');
+            $filename = $post->slug . '-' . time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/' . $filename);
+            Image::make($image)->fit(800,400)->save($location);
+
+            $post->image = $filename;
+        }
 
         $post->save();
 
@@ -125,29 +140,38 @@ class PostController extends Controller
         //accept information from the form field data
         //Validate it
         $post = Post::find($id);
-        if ($request->input('slug') == $post->slug){
-            $this->validate($request, array(
-                // https://laravel.com/docs/5.4/validation#form-request-validation
-                'title' => 'required|max:255',
-                'category_id' => 'required|integer',
-                'body' => 'required'
-                ));
-        } else  {     
+
+  
             $this->validate($request, array(
                // https://laravel.com/docs/5.4/validation#form-request-validation
                'title' => 'required|max:255',
-               'slug' => 'required|alpha_dash|min:3|max:255|unique:posts,slug',
+               'slug' => "required|alpha_dash|min:3|max:255|unique:posts,slug,$id",
                'category_id' => 'required|integer',
-               'body' => 'required'
+               'body' => 'required',
+               'featured_image' => 'image'
                ));
-        }
         //save in the db
         $post = Post::find($id);
 
         $post->title = $request->input('title');
         $post->slug = $request->input('slug');
         $post->category_id = $request->input('category_id');
-        $post->body = $request->input('body');
+        $post->body = Purifier::clean($request->input('body'));
+
+        if ($request->hasFile('featured_image')) {
+            //add new photo
+            $image = $request->file('featured_image');
+            $filename = $post->slug . '-' . time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/' . $filename);
+            Image::make($image)->save($location);
+
+            $oldFileName = $post->image;
+
+            //delete the old photo
+            $post->image = $filename;
+            //upload db
+            Storage::delete($oldFileName);
+        }
 
         $post->save();
         if (isset($request->tags))
@@ -174,6 +198,7 @@ class PostController extends Controller
         //find the item to delete
         $post = Post::find($id);
         $post->tags()->detach();
+        Storage::delete($post->image);
 
         //Use eloquent to delete the item
         $post->delete();

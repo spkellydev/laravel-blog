@@ -4,7 +4,7 @@
 @section('stylesheets')
 	{!! Html::style('./css/parsley.css') !!}
 	{!! Html::style('./css/select2.min.css') !!}
-	<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+	<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=c7yuxn4so9ggjebglk751gqvmghkanssf2bs39mkv0d5l5pd"></script>
 	<script>
 		tinymce.init({
 			selector: 'textarea',
@@ -17,7 +17,7 @@
 
 @section('content')
 <div class="row">
-{!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT']) !!}
+{!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT', 'files' => 'true']) !!}
 	<div class="col-md-8">
 		{{ Form::label('title', 'Title: ') }}
 		{{ Form::text('title', null, ["class" => 'form-control input-lg']) }}
@@ -30,6 +30,9 @@
 
 		{{ Form::label('tags', 'Tags:', ['class' => 'form-spacing-top']) }}
 		{{ Form::select('tags[]', $tags, null, ['class' => 'form-control select2-multi', 'multiple' => 'multiple']) }}
+
+		{{ Form::label('featured_image', 'Update Featured Image') }}
+		{{ Form::file('featured_image') }}
 
 		{{ Form::label('body', 'Body: ') }}
 		{{ Form::textarea('body', null, ['class' => 'form-control']) }}

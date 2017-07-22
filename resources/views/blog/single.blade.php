@@ -4,6 +4,7 @@
 
 	<section class="row">
 		<article class="col-md-8 col-md-offset-2">
+		<img class="img-responsive" src="{{ asset('images/' . $post->image) }}" alt="{{ $post->title }}">
 			<header><h1>{{ $post->title }}</h1></header>
 			<p>{!! $post->body !!}</p>
 			<hr>

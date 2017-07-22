@@ -6,7 +6,7 @@
 	{!! Html::style('./css/parsley.css') !!}
 	{!! Html::style('./css/select2.min.css') !!}
 
-	<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+	<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=c7yuxn4so9ggjebglk751gqvmghkanssf2bs39mkv0d5l5pd"></script>
 	<script>
 		tinymce.init({
 			selector: 'textarea',
@@ -26,7 +26,7 @@
 			<h1>Create New Post</h1>
 			<hr>
 			{{-- Using laravel form helper from Laravel Collective --}}
-			{!! Form::open(['route' => 'posts.store', 'data-parsley-validate' => '']) !!}
+			{!! Form::open(['route' => 'posts.store', 'data-parsley-validate' => '', 'files' => 'true']) !!}
 			    {{ Form::label('title', 'Title:') }}
 			    {{ Form::text('title', null, array('class' => 'form-control', 'placeholder' => 'Your Title', 'required', 'maxlength'=>'255') )}}
 			    <div class="col-md-12" style="padding: 0">
@@ -49,8 +49,15 @@
 			    	@endforeach
 			    </select>
 			    </div>
+			    <br>
+			    <div class="col-md-12" style="padding: 0">
+			    {{ Form::label('featured_image', 'Upload Featured Image') }}
+			    {{ Form::file('featured_image')}}
+			    </div>
+			    <div class="col-md-12" style="padding: 0">
 			    {{ Form::label('body', "Post Body:" ) }}
 			    {{ Form::textarea('body', null, array('class' => 'form-control', 'placeholder' => 'Happy Blogging!') ) }}
+			    </div>
 			    {{ Form::submit('Create Post', array('class' => 'btn btn-success btn-lg btn-block') ) }}
 			{!! Form::close() !!}
 		</div>
