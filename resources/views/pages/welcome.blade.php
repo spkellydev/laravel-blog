@@ -4,18 +4,17 @@
 
 @section('content')
       <div class="row">
-        <h1>Hello, world!</h1>
         <div class="col-md-12">
           <div class="jumbotron">
-            <h1>Welcome to the Blog</h1>
-            <p class="lead">Thank you for visiting. This project has been built with Laravel. Please read my popular post</p>
-            <p><a href="#" class="btn btn-primary btn-lg">Popular Post</a></p>
-          </div> <!-- end of jumbrotron -->
+            <h1>Welcome to my site!</h1>
+            <p class="lead">This site was built on Laravel, and is my first attempt at creating a fully operational blog. The design will be changing any day now... Please feel free to look around, but I'm afraid there's not much to see!<br><small>Bootstrap CSS framework has been used, it is my intention to switch to Bulma.</small></p>
+            </div> <!-- end of jumbrotron -->
         </div> <!-- end of columns -->
       </div> <!-- end of row -->
       <div class="row">
         <div class="col-md-8">
         {{-- loop through the posts to display on homepage --}}
+        <h2>Blog Posts</h2>
         @foreach($posts as $post)
 
           <div class="post">
