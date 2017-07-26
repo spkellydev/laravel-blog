@@ -1,5 +1,7 @@
 @extends('main')
 @section('title', 'About')
+@section('meta_title', 'SPK.Design | Contact Me Here')
+@section('meta_description', "Hello! If you need a full stack developer or just want to say hello, feel free to drop me a line!")
 @section('content')
       <div class="row">
         <div class="col-md-12">

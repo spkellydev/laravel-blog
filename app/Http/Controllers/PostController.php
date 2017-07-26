@@ -63,7 +63,9 @@ class PostController extends Controller
             'slug' => 'required|alpha_dash|min:3|max:255|unique:posts,slug',
             'category_id' => 'required|integer',
             'body' => 'required',
-            'featured_image' => 'sometimes|image'
+            'featured_image' => 'sometimes|image',
+            'meta_title' => 'required|max:255',
+            'meta_description' => 'required'
             ));
         //push to database
         $post = new Post;
@@ -71,6 +73,8 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->category_id = $request->category_id;
+        $post->meta_title = $request->meta_title;
+        $post->meta_description = $request->meta_description;
 
         //Purifier for WYSIWIG
         $post->body = Purifier::clean($request->body);
@@ -148,7 +152,9 @@ class PostController extends Controller
                'slug' => "required|alpha_dash|min:3|max:255|unique:posts,slug,$id",
                'category_id' => 'required|integer',
                'body' => 'required',
-               'featured_image' => 'image'
+               'featured_image' => 'image',
+               'meta_title' => 'required|max:255',
+               'meta_description' => 'required'
                ));
         //save in the db
         $post = Post::find($id);
@@ -157,6 +163,8 @@ class PostController extends Controller
         $post->slug = $request->input('slug');
         $post->category_id = $request->input('category_id');
         $post->body = Purifier::clean($request->input('body'));
+        $post->meta_title = $request->input('meta_title');
+        $post->meta_description = $request->input('meta_description');
 
         if ($request->hasFile('featured_image')) {
             //add new photo

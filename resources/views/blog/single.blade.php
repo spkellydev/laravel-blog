@@ -1,5 +1,7 @@
 @extends('main')
 @section('title', " $post->title")
+@section('meta_title', " $post->meta_title")
+@section('meta_description', "$post->meta_description")
 @section('content')
 
 	<section class="row">

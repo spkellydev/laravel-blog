@@ -3,6 +3,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>SPK.Design Blog | @yield('title')</title>
+    <meta name="title" content="@yield('meta_title')">
+    <meta name="description" content="@yield('meta_description')">
     <!-- change this title for each page -->
 
     <!-- Bootstrap --> 

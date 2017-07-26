@@ -1,5 +1,7 @@
 @extends('main')
 @section('title', 'Blog')
+@section('meta_title', 'My Blog | SPK.Design | PHP JS CSS & More')
+@section('meta_description', "There is so much to learn about web development. Why not see my take on some things? Leave me a comment and we can talk about it.")
 @section('content')
 
 	<div class="row">

@@ -8,8 +8,9 @@
 
 	<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=c7yuxn4so9ggjebglk751gqvmghkanssf2bs39mkv0d5l5pd"></script>
 	<script>
+		
 		tinymce.init({
-			selector: 'textarea',
+			selector: 'textarea.editable',
 			plugins: 'link image imagetools lists',
 			menubar: 'false',
 			branding: 'false',
@@ -56,7 +57,13 @@
 			    </div>
 			    <div class="col-md-12" style="padding: 0">
 			    {{ Form::label('body', "Post Body:" ) }}
-			    {{ Form::textarea('body', null, array('class' => 'form-control', 'placeholder' => 'Happy Blogging!') ) }}
+			    {{ Form::textarea('body', null, array('class' => 'form-control editable', 'placeholder' => 'Happy Blogging!') ) }}
+			    </div>
+			    <div class="col-md-12" style="padding: 0">
+			    {{ Form::label('meta_title', "Meta Title:" ) }}
+			    {{ Form::text('meta_title', null, array('class' => 'form-control', 'placeholder' => 'SEO Title', 'required', 'maxlength'=>'255') )}}
+			    {{ Form::label('meta_description', "Meta Description:" ) }}
+			    {{ Form::textarea('meta_description', null, array('class' => 'form-control', 'placeholder' => 'SEO Description!', 'rows' => '3') ) }}
 			    </div>
 			    {{ Form::submit('Create Post', array('class' => 'btn btn-success btn-lg btn-block') ) }}
 			{!! Form::close() !!}

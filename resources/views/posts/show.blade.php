@@ -14,6 +14,7 @@
 				<span class="label label-default">{{ $tag->name }}</span>
 			@endforeach
 		</div>
+		<p>TITLE: {{ $post->meta_title }}</p>
 		<hr>
 		<div id="backend-comments">
 			<h4>Total Comments <small>{{ $post->comments()->count() }}</small></h4>
