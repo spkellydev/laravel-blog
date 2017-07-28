@@ -30,7 +30,7 @@
         @endforeach
         </div>
         <div class="col-md-3 col-md-offset-1 feature-project">
-            <h2>Featured Project</h2>
+            <h2>Featured Project:</h2>
             <img src="./images/feature-project.jpg" class="img-responsive">
             <h4>Jekyll Build, Hosted on Netlify</h4>
             <p>This is the base design for a local storage company located in Monmouth County. The build used Front Matter, YAML, and Bulma powered by Github's static site generator, Jekyll.</p>
