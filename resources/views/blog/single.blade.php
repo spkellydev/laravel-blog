@@ -5,17 +5,22 @@
 @section('content')
 
 	<section class="row">
-		<article class="col-md-8 col-md-offset-2">
+		<article class="col-md-10 col-md-offset-1">
 		<img class="img-responsive" src="{{ asset('images/' . $post->image) }}" alt="{{ $post->title }}">
 			<header><h1>{{ $post->title }}</h1></header>
 			<p>{!! $post->body !!}</p>
 			<hr>
 			<p>Posted in: {{ $post->category->name }}</p>
+			<div class="tags">
+				@foreach ($post->tags as $tag)
+					<span class="label label-default">{{ $tag->name }}</span>
+				@endforeach
+			</div>
 		</article>
 	</section>
 
 	<aside class="row" style="padding: 20px">
-		<div class="well col-md-8 col-md-offset-2">
+		<div class="well col-md-10 col-md-offset-1">
 			<h4><span class="glyphicon glyphicon-comment"></span> Comments</h4>
 			<small>{{ $post->comments()->count() }} Conversations <a href="#comment-submisson" class="btn btn-xs btn-default">Leave Comment</a></small>
 			<hr>
@@ -36,7 +41,7 @@
 
 	<section class="row">
 		<h3 class="text-center" id="comment-submisson">Leave a Comment</h3>
-		<div id="comment_form" class="col-md-8 col-md-offset-2">
+		<div id="comment_form" class="col-md-10 col-md-offset-1">
 		{{ Form::open(['route' => ['comments.store', $post->id], 'method' => 'POST'])}}
 			<div class="row">
 				<div class="col-md-6">

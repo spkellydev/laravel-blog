@@ -16,7 +16,12 @@
 			<h5>Published: {{ date('M j, Y', strtotime($post->created_at)) }}</h5>
 
 			<p>{{ substr(strip_tags($post->body), 0, 250) }}{{ strlen(strip_tags($post->body)) > 250 ? '...' : "" }}</p>
-
+			<div class="tags">
+				@foreach ($post->tags as $tag)
+					<span class="label label-default">{{ $tag->name }}</span>
+				@endforeach
+			</div>
+			<br>
 			<a href="{{ route('blog.single', $post->slug) }}" class="btn btn-primary">Read More</a>
 		</div>
 	</div>

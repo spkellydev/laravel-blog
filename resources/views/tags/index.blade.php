@@ -23,6 +23,7 @@
 				</tbody>
 			</table>
 		</div>
+		
 		<div class="col-md-3">
 			<div class="well">
 				{!! Form::open(['route' => 'tags.store', 'method' => 'POST']) !!}

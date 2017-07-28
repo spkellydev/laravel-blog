@@ -84,7 +84,7 @@ class PostController extends Controller
             $image = $request->file('featured_image');
             $filename = $post->slug . '-' . time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/' . $filename);
-            Image::make($image)->fit(800,400)->save($location);
+            Image::make($image)->fit(975,400)->save($location);
 
             $post->image = $filename;
         }
