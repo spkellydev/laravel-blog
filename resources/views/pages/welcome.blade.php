@@ -1,4 +1,4 @@
-@extends('main')
+@extends('index')
 
 @section('title', 'Home')
 @section('meta_title', 'SPK.Design | Sean Kelly - Full Stack Web Developer')
@@ -7,13 +7,6 @@
 
 
 @section('content')
-<section class="homepage-hero">
-    <hgroup class="text-center">
-      <h1>Sean Kelly</h1>
-      <h2>Full Stack Developer</h2>
-      <h3>Current Position: SEO Analyst</h3>
-    </hgroup>
-</section>
       <div class="row">
         <div class="col-md-8">
         {{-- loop through the posts to display on homepage --}}
@@ -36,13 +29,5 @@
             <p>This is the base design for a local storage company located in Monmouth County. The build used Front Matter, YAML, and Bulma powered by Github's static site generator, Jekyll.</p>
             <a href="/blog/jekyll">Read More</a>
         </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="jumbotron">
-            <h1>Welcome to my site!</h1>
-            <p class="lead">This site was built on Laravel, and is my first attempt at creating a fully operational blog. The design will be changing any day now... Please feel free to look around, but I'm afraid there's not much to see!<br><small>Bootstrap CSS framework has been used, it is my intention to switch to Bulma.</small></p>
-            </div> <!-- end of jumbrotron -->
-        </div> <!-- end of columns -->
-      </div> <!-- end of row -->
       </div>
 @endsection
