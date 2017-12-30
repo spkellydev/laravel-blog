@@ -31,6 +31,15 @@ class TechnologyController extends Controller
     public function store(Request $request)
     {
         //creating and updating
+        $tech = $request->isMethod('put') ? Technology::findOrFail($request->technology_id) : new Technology;
+
+        $tech->id = $request->input('technology_id');
+        $tech->tech = $request->input('tech');
+        $tech->description = $request->input('description');
+
+        if ( $tech->save() ) {
+            return new TechnologyResource($tech);
+        }
     }
 
     /**
@@ -42,6 +51,9 @@ class TechnologyController extends Controller
     public function show($id)
     {
         //show a single tech
+        $tech = Technology::findOrFail($id);
+        //return the single tech as a resource
+        return new TechnologyResource($tech);
     }
 
 
@@ -54,5 +66,10 @@ class TechnologyController extends Controller
     public function destroy($id)
     {
         //delete a tech
+        $tech = Technology::findOrFail($id);
+        //return the single tech as a resource
+        if ( $tech->delete() ) {
+            return new TechnologyResource($tech);
+        }
     }
 }

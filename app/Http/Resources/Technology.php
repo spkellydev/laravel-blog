@@ -14,6 +14,19 @@ class Technology extends Resource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        //return parent::toArray($request);
+        //return only fields that are needed
+        return [
+            'id' => $this->id,
+            'tech' => $this->tech,
+            'description' => $this->description
+        ];
+    }
+
+    public function with( $request )
+    {
+        return [
+            'github' => url('https://github.com/spkellydev?tab=repositories')
+        ];
     }
 }
