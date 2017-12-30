@@ -12,6 +12,6 @@ class TechnologiesTableSeeder extends Seeder
     public function run()
     {
         //seed some technologies to play with
-        factory(App\Technologies::class, 10)->create();
+        factory(App\Technology::class, 10)->create();
     }
 }

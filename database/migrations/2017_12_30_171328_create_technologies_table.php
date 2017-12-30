@@ -17,6 +17,7 @@ class CreateTechnologiesTable extends Migration
             $table->increments('id');
             $table->string('tech');
             $table->text('description');
+            $table->timestamps();
         });
     }
 
