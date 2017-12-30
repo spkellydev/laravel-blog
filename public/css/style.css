@@ -1,5 +1,5 @@
 body {
-	background: #eeeeff;
+	background: #f5ebff;
 	font-family: 'Rubik', sans-serif;
 }
 
@@ -8,6 +8,16 @@ body {
 	height: 50px;
 	border-radius: 50%;
 	float: left;
+}
+
+.navbar {
+	margin-bottom: 0;
+	border-radius: 0 !important;
+}
+
+.navbar-default {
+    background-color: #090a29;
+    border-color: #0a0010;
 }
 
 .comment {
@@ -35,14 +45,28 @@ body {
 	line-height: 1.3em;
 }
 .homepage-hero {
-	background: #0172ff;
+	background: url(http://www.themes-lab.com/make-frontend/common-files/images/bg/smoke2.png),url(https://wallpaperscraft.com/image/surface_texture_stains_background_50906_5000x3690.jpg);
 	width: 100%;
 	height: 65vh;
 	color: white;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	-webkit-clip-path: polygon(0px 72%,100% 100%,100% 0px,0px 0px);
+	clip-path: polygon(0px 72%,100% 100%,100% 0px,0px 0px);
+	background-blend-mode: hard-light;
 }
+
+.homepage-hero:before {
+	position: absolute;
+    content: '';
+    width: 100%;
+    height: 65vh;
+    z-index: -1;
+    clip-path: polygon(0px 72%,100% 100%,100% 0px,0px 0px);
+    background-image: radial-gradient(circle at center, #152835c2 0, #2f034abf 100%);
+}
+
 .homepage-hero hgroup {
 	font-family: 'Zilla Slab', serif;
 }
