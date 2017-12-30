@@ -6,9 +6,8 @@
       <div class="row">
         <div class="col-md-12">
           <div class="jumbotron">
-            <h1>About Me</h1>
-            <p class="lead">Hey there!</p>
-            <p>I'm an aspiring full stack developer! Currently I work as an SEO in Asbury Park, NJ. My responsibilites include managing search engine optimization, digital reputations, and front end design.</p>
+            <h1>About Sean</h1>
+            <p>Currently I work as an SEO in Asbury Park, NJ. My responsibilites include managing search engine optimization, digital reputations, and front end design.</p>
           </div> <!-- end of jumbrotron -->
         </div> <!-- end of columns -->
       </div> <!-- end of row -->
