@@ -8,7 +8,7 @@
   <!-- Default Bootstrap Navbar -->
   @include('partials._nav')
 
-    <div class="container">
+    <div>
       @include('partials._messages')
 
 

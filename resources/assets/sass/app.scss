@@ -5,124 +5,59 @@
 
 // Variables
 @import "variables";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+// Elements
+@import "navbar";
+@import "comments";
+@import "home";
+@import 'mixins';
 
 // Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+
 
 body {
-	background: #f5ebff;
-	font-family: 'Rubik', sans-serif;
-}
-
-.navbar {
-	margin-bottom: 0;
-	border-radius: 0 !important;
-}
-
-.navbar-default {
-    background-color: #090a29;
-    border-color: #0a0010;
-}
-
-.comment {
-	margin-bottom: 45px;
+	background: $body-bg;
+	font-family: $font-family-serif;
+	box-sizing: border-box;
 	
-	.author-name {
-		float: left;
-		margin-left: 15px;
-		
-		h6 {
-			margin: 5px 0;
+	.row {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	@include headings {
+		font-family: $font-family-sans-serif;
+
+	}
+	.section-heading {
+		font-size: 5rem;
+		font-weight: 900;
+	}
+
+	.heading-inverse {
+		font-family: $font-family-serif;
+	}
+}
+
+.blog {
+	header {
+		background: $deep-purple;
+		background-image: radial-gradient(circle at 10%, $deep-purple 0, #060113 100%);
+
+		h1 {
+			background: $body-bg;
+			min-width: 25%;
+			width: auto;
+			margin: 0 16%;
+			padding: 20px 25px 0px;
+			border-radius: 20px 20px 0 0;
+			margin-bottom: 40px;
+			margin-top: 40px;
 		}
-	}
-	
-	.author-time {
-		font-size: 11px;
-		font-style: italic;
-		color: #aaa;
-	}
-	
-	.comment-content {
-		clear: both;
-		margin-left: 65px;
-		font-size: 16px;
-		line-height: 1.3em;
-	}
 
-	.author-image {
-		width: 50px;
-		height: 50px;
-		border-radius: 50%;
-		float: left;
-	}
-}
-
-
-.homepage-hero {
-	background: url(http://www.themes-lab.com/make-frontend/common-files/images/bg/smoke2.png),url(https://wallpaperscraft.com/image/surface_texture_stains_background_50906_5000x3690.jpg);
-	width: 100%;
-	height: 65vh;
-	color: white;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	-webkit-clip-path: polygon(0px 72%,100% 100%,100% 0px,0px 0px);
-	clip-path: polygon(0px 72%,100% 100%,100% 0px,0px 0px);
-	background-blend-mode: hard-light;
-	
-	&:before {
-		position: absolute;
-		content: '';
-		width: 100%;
-		height: 65vh;
-		z-index: -1;
-		clip-path: polygon(0px 72%,100% 100%,100% 0px,0px 0px);
-		background-image: radial-gradient(circle at center, rgba(21, 40, 53, 0.60) 0, rgba(47, 3, 74, 0.5) 100%);
-	}
-	
-	hgroup {
-		font-family: 'Zilla Slab', serif;
-	}
-}
-
-div#app {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-  
-	.wrapper {
-	  display: flex;
-	  max-width: 650px;
-	  flex-wrap: wrap;
-	  padding-top: 12px;
-	}
-  
-	.card {
-	  box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
-	  margin: 12px;
-	  transition: .15s all ease-in-out;
-	  background: #ffffff;
-	  padding: 5px;
-
-	  &:hover {
-		transform: scale(1.1);
-	  }
-	  a {
-		text-decoration: none;
-		padding: 12px;
-		color: #03A9F4;
-		font-size: 24px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
 		img {
-		  height: 100px;
+			padding: 0px 15%;
 		}
-		small {
-		  font-size: 10px;
-		  padding: 4px;
-		}
-	  }
 	}
 }

@@ -1,4 +1,4 @@
-   <nav class="navbar navbar-default">
+    <nav id="nav" class="navbar navbar-default">
       <div class="container-fluid container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -33,9 +33,6 @@
                 <li><a href="{{ route('logout') }}">Log Out</a></li>
               </ul>
             </li>
-
-          @else
-            <a style="margin: 9px 0 0 0;" href="{{ route('login') }}" class="btn btn-default">Login</a>
           @endif
           </ul>
         </div><!-- /.navbar-collapse -->

@@ -18,6 +18,7 @@ Vue.use(VueResource);
  */
 
 Vue.component('tech-list', require('./components/TechListComponent.vue'));
+Vue.component('main-card', require('./components/MainCard.vue'));
 
 const app = new Vue({
     el: '#app',

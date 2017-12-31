@@ -1,0 +1,26 @@
+.homepage-hero {
+	background: url(http://www.themes-lab.com/make-frontend/common-files/images/bg/smoke2.png),url(https://wallpaperscraft.com/image/surface_texture_stains_background_50906_5000x3690.jpg);
+	width: 100%;
+	height: 65vh;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	-webkit-clip-path: polygon(0px 72%,100% 100%,100% 0px,0px 0px);
+	clip-path: polygon(0px 72%,100% 100%,100% 0px,0px 0px);
+	background-blend-mode: hard-light;
+	
+	&:before {
+		position: absolute;
+		content: '';
+		width: 100%;
+		height: 65vh;
+		z-index: -1;
+		clip-path: polygon(0px 72%,100% 100%,100% 0px,0px 0px);
+		background-image: radial-gradient(circle at center, rgba(21, 40, 53, 0.60) 0, $deep-purple 100%);
+	}
+	
+	hgroup {
+		font-family: 'Zilla Slab', serif;
+	}
+}

@@ -7,30 +7,32 @@
 
 
 @section('content')
-      <div id="app">
-        <tech-list></tech-list>
-      </div>
-      <div class="row">
-        <div class="col-md-8">
-        {{-- loop through the posts to display on homepage --}}
-        <h2>Blog Posts</h2>
-        @foreach($posts as $post)
+  <div id="app">
+    <main-card></main-card>
+    <tech-list></tech-list>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-8">
+    {{-- loop through the posts to display on homepage --}}
+    <h2>Blog Posts</h2>
+    @foreach($posts as $post)
 
-          <div class="post">
-            <h3>{{ $post->title }}</h3>
-            <p>{{ substr(strip_tags($post->body), 0, 300) }}{{ strlen(strip_tags($post->body)) > 300 ? "..." : "" }}</p>
-            <a href="{{ url('blog/'.$post->slug) }}" class="btn btn-lg btn-primary">Read More</a>
-          </div>
-          <hr>
-
-        @endforeach
-        </div>
-        <div class="col-md-3 col-md-offset-1 feature-project">
-            <h2>Featured Project:</h2>
-            <img src="./images/feature-project.jpg" class="img-responsive">
-            <h4>Jekyll Build, Hosted on Netlify</h4>
-            <p>This is the base design for a local storage company located in Monmouth County. The build used Front Matter, YAML, and Bulma powered by Github's static site generator, Jekyll.</p>
-            <a href="/blog/jekyll">Read More</a>
-        </div>
+      <div class="post">
+        <h3>{{ $post->title }}</h3>
+        <p>{{ substr(strip_tags($post->body), 0, 300) }}{{ strlen(strip_tags($post->body)) > 300 ? "..." : "" }}</p>
+        <a href="{{ url('blog/'.$post->slug) }}" class="btn btn-lg btn-primary">Read More</a>
       </div>
+      <hr>
+
+    @endforeach
+    </div>
+    <div class="col-md-3 col-md-offset-1 feature-project">
+        <h2>Featured Project:</h2>
+        <img src="./images/feature-project.jpg" class="img-responsive">
+        <h4>Jekyll Build, Hosted on Netlify</h4>
+        <p>This is the base design for a local storage company located in Monmouth County. The build used Front Matter, YAML, and Bulma powered by Github's static site generator, Jekyll.</p>
+        <a href="/blog/jekyll">Read More</a>
+    </div>
+  </div>
 @endsection
