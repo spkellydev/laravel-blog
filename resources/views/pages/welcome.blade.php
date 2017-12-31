@@ -7,7 +7,9 @@
 
 
 @section('content')
-      <div id="vue"></div>
+      <div id="app">
+        <example-component></example-component>
+      </div>
       <div class="row">
         <div class="col-md-8">
         {{-- loop through the posts to display on homepage --}}

@@ -8355,13 +8355,6 @@ body {
   font-family: 'Rubik', sans-serif;
 }
 
-.author-image {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  float: left;
-}
-
 .navbar {
   margin-bottom: 0;
   border-radius: 0 !important;
@@ -8376,26 +8369,33 @@ body {
   margin-bottom: 45px;
 }
 
-.author-name {
+.comment .author-name {
   float: left;
   margin-left: 15px;
 }
 
-.author-name > h6 {
+.comment .author-name h6 {
   margin: 5px 0;
 }
 
-.author-time {
+.comment .author-time {
   font-size: 11px;
   font-style: italic;
   color: #aaa;
 }
 
-.comment-content {
+.comment .comment-content {
   clear: both;
   margin-left: 65px;
   font-size: 16px;
   line-height: 1.3em;
+}
+
+.comment .author-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  float: left;
 }
 
 .homepage-hero {
@@ -8430,5 +8430,71 @@ body {
 
 .homepage-hero hgroup {
   font-family: 'Zilla Slab', serif;
+}
+
+div#app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+div#app .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 650px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding-top: 12px;
+}
+
+div#app .card {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+          box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+  max-width: 124px;
+  margin: 12px;
+  -webkit-transition: .15s all ease-in-out;
+  transition: .15s all ease-in-out;
+}
+
+div#app .card:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+div#app .card a {
+  text-decoration: none;
+  padding: 12px;
+  color: #03A9F4;
+  font-size: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div#app .card a img {
+  height: 100px;
+}
+
+div#app .card a small {
+  font-size: 10px;
+  padding: 4px;
 }
 
