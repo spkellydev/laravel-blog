@@ -8,7 +8,7 @@
 
 @section('content')
       <div id="app">
-        <example-component></example-component>
+        <tech-list></tech-list>
       </div>
       <div class="row">
         <div class="col-md-8">
