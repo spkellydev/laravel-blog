@@ -2,23 +2,13 @@
     <div class="search-wrapper">
         <div class="wrapper">
             <div class="card" v-bind:key="tech.id" v-for="tech in techList">
-                    {{ tech.tech }}
-                    {{ tech.description }}
+                    <a href="#" target="_blank">{{ tech.tech }}</a>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-
-    class Tech {
-        constructor(id, tech, description) {
-            this.id = id
-            this.tech = tech;
-            this.description = description;
-        }
-    }
-
     export default {
         data () {
             return {

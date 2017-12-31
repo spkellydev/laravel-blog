@@ -42942,8 +42942,6 @@ module.exports = function normalizeComponent (
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 //
 //
 //
@@ -42954,16 +42952,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 //
 //
 //
-//
-
-
-var Tech = function Tech(id, tech, description) {
-    _classCallCheck(this, Tech);
-
-    this.id = id;
-    this.tech = tech;
-    this.description = description;
-};
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -43000,13 +42988,9 @@ var render = function() {
       { staticClass: "wrapper" },
       _vm._l(_vm.techList, function(tech) {
         return _c("div", { key: tech.id, staticClass: "card" }, [
-          _vm._v(
-            "\n                " +
-              _vm._s(tech.tech) +
-              "\n                " +
-              _vm._s(tech.description) +
-              "\n        "
-          )
+          _c("a", { attrs: { href: "#", target: "_blank" } }, [
+            _vm._v(_vm._s(tech.tech))
+          ])
         ])
       })
     )
