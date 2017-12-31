@@ -15,7 +15,7 @@
   <div class="row">
     <div class="col-md-8">
     {{-- loop through the posts to display on homepage --}}
-    <h2>Blog Posts</h2>
+    <h2>The Blog</h2>
     @foreach($posts as $post)
 
       <div class="post">
