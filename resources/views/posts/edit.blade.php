@@ -16,7 +16,7 @@
 	</script>
 
 @section('content')
-<div class="row">
+<div class="container-fluid row">
 {!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT', 'files' => 'true']) !!}
 	<div class="col-md-8">
 		{{ Form::label('title', 'Title: ') }}
