@@ -30,4 +30,6 @@ Header set Cache-Control "public, max-age=290304000"
 order allow,deny
 deny from all
 </Files>
- 
+
+//Custom 403 errors
+ErrorDocument 403 /403
