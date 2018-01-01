@@ -16,8 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('technologies', 'TechnologyController@index');
-Route::get('technology/{id}', 'TechnologyController@show');
-Route::post('technology', 'TechnologyController@store');
-Route::put('technology', 'TechnologyController@store');
-Route::delete('technology/{id}', 'TechnologyController@destroy');
+Route::get('/technologies', 'TechnologyController@index');
+Route::get('/technology/{id}', 'TechnologyController@show');
+Route::post('/technology', 'TechnologyController@store');
+Route::put('/technology', 'TechnologyController@store');
+Route::delete('/technology/{id}', 'TechnologyController@destroy');
