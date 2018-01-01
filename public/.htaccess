@@ -18,3 +18,16 @@
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </IfModule>
+
+
+//Caching schema
+<FilesMatch "\.(js|css|img)$">
+Header set Cache-Control "public, max-age=290304000"
+</FilesMatch>
+
+//Prevent viewing of .htaccess file
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+ 
