@@ -13,7 +13,7 @@
             }
         },
         mounted () {
-            console.log(this.title)
+            
         },
         created: function () {
             

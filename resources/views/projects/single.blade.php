@@ -17,14 +17,13 @@
 				title="{{ $project->title }}">
 			</project-header>
 			<div class="col-md-8 col-md-offset-2">
-				<p>{!! $project->body !!}</p>
+				{!! $project->body !!}
 				<hr>
 				<p class="badge">{{ $project->category->name }}</p>
 			</div>
 		</article>
-		<aside>
-			<h3>See on GitHub</h3>
-		<a href="{{ $project->github }}">{{ $project->title }}</a>
+		<aside id="sidebar" class="col-md-4">
+			<a class="btn" href="{{ $project->github }}"><h4>Review {{ $project->title }} on GitHub</h4></a>
 		</aside>
 	</section>
 

@@ -11,6 +11,6 @@ Vue.component('project-image', require('./components/projects/ProjectImage'));
 const app = new Vue({
     el: '#project',
     data: {
-        title: 'Javascript'
+        
     }
 });

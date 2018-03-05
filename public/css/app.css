@@ -8480,3 +8480,16 @@ body .heading-inverse {
   padding: 0;
 }
 
+.pt-2 {
+  padding: 20px;
+}
+
+#sidebar {
+  background-color: #090a29;
+  height: 100vh;
+}
+
+#sidebar a {
+  color: white;
+}
+

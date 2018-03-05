@@ -13448,9 +13448,7 @@ Vue.component('project-image', __webpack_require__(63));
 
 var app = new Vue({
     el: '#project',
-    data: {
-        title: 'Javascript'
-    }
+    data: {}
 });
 
 /***/ }),
@@ -13559,6 +13557,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['title', 'category'],
+    state: ['title'],
     data: function data() {
         return {};
     },
@@ -13851,9 +13850,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {};
     },
-    mounted: function mounted() {
-        console.log(this.title);
-    },
+    mounted: function mounted() {},
 
     created: function created() {}
 });

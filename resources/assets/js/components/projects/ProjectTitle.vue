@@ -6,7 +6,8 @@
 
 <script>
     export default {
-        props: ['title', 'category'],
+		props: ['title', 'category'],
+		state: ['title'],
         data () {
             return {
             }

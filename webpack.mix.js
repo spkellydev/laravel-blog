@@ -15,6 +15,7 @@ const path = require('path');
 mix.js('resources/assets/js/bootstrap.js', 'public/js')
     .js('resources/assets/js/app.js', 'public/js')
     .js('resources/assets/js/project.js', 'public/js')
+    .js('resources/assets/js/sidebar.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css')
     .webpackConfig({
         resolve: {
