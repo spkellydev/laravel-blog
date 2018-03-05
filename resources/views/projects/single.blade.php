@@ -23,7 +23,7 @@
 			</div>
 		</article>
 		<aside id="sidebar" class="col-md-4">
-			<a class="btn" href="{{ $project->github }}"><h4>Review {{ $project->title }} on GitHub</h4></a>
+			<a class="btn" href="{{ $project->github }}"><h4>Review {{ $project->title }}</h4></a>
 		</aside>
 	</section>
 
