@@ -19,6 +19,12 @@ class CreateProjectsTable extends Migration
             $table->text('body');
             $table->string('technology');
             $table->string('github');
+            $table->text('meta_title');
+            $table->text('meta_description');
+            $table->string('slug');
+            $table->string('image')->nullable();
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }
