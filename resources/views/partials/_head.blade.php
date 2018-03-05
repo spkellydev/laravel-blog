@@ -7,6 +7,7 @@
     <meta name="description" content="@yield('meta_description')">
     <meta name="google-site-verification" content="GLKQDRiETzjpek1H26BHJq-CqILEA_T8Map9zBMJFAQ" />
     <meta name="msvalidate.01" content="5E13FF103B5744AF5D67F9A1FAC5ACBA" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -17,11 +18,23 @@
       ga('send', 'pageview');
 
     </script>
+    <script src="{{ elixir('js/bootstrap.js') }}"></script>
+
     <script
     src="https://code.jquery.com/jquery-2.2.4.min.js"
     integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
     crossorigin="anonymous"></script>
     {{ Html::style('css/app.css') }}
     {{ Html::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') }}
+
+    <script>
+    
+    $.ajaxSetup({
+    headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    </script>
 
     @yield('stylesheets')

@@ -4,7 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+// require('./bootstrap');
+
 
 window.Vue = require('vue');
 
@@ -17,12 +18,14 @@ Vue.use(VueResource);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+ 
+
 Vue.component('tech-list', require('./components/TechListComponent.vue'));
 Vue.component('main-card', require('./components/MainCard.vue'));
 
 const app = new Vue({
     el: '#app',
     data: {
-        keyword: 'Javascript'
+        keyword: ''
     }
 });
