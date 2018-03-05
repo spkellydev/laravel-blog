@@ -108,6 +108,19 @@ class ProjectController extends Controller
     }
 
     /**
+     * Single view for front end.
+     *
+     * @param  \App\Project  $project
+     * @return \Illuminate\Http\Response
+     */
+    public function getSingle($slug)
+    {
+         //get from database, accessing the model
+         $project = Project::where('slug', '=', $slug)->first();
+         return view('projects.single')->withProject($project);
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Project  $project
