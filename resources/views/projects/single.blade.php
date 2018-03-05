@@ -9,17 +9,13 @@
 
 @section('content')
 
-
-	<div id="project">
-		<main-title :title="'{!! json_encode($project->title) !!}'"></main-title>
-	</div>
-
-	<section class="row projects">
+	<section id="project" class="row projects">
 		<article class="col-md-8">
-			<header>
-				<img class="img-responsive" src="{{ asset('images/' . $project->image) }}" alt="{{ $project->title }}">
-				<h1 class="section-heading">{{ $project->title }}</h1>
-			</header>
+			<project-header 
+				src="{{ asset('images/' . $project->image) }}" 
+				category="{{ $project->category->name }}" 
+				title="{{ $project->title }}">
+			</project-header>
 			<div class="col-md-8 col-md-offset-2">
 				<p>{!! $project->body !!}</p>
 				<hr>
