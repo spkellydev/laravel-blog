@@ -20,6 +20,9 @@ Route::get('about', 'PagesController@getAbout');
 Route::get('/', 'PagesController@getIndex');
 Route::resource('posts', 'PostController');
 
+//Projects
+Route::resource('projects', 'ProjectController');
+
 
 //Authentication
 Auth::routes();
