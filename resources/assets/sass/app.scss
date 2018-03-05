@@ -61,3 +61,22 @@ body {
 		}
 	}
 }
+
+.projects {
+	article {
+		padding: 0;
+	}
+}
+
+.pt-2 {
+	padding: 20px;
+}
+
+#sidebar {
+	background-color: $site-blue;
+	height: 100vh;
+
+	a {
+		color: white;
+	}
+}

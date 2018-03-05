@@ -11,7 +11,6 @@ class BlogController extends Controller
 	public function getIndex() {
 		$posts = Post::paginate(10);
 		return view('blog.index')->withPosts($posts);
-
 	}
     //fetch from the db based on slug
     //return the view and past the post object

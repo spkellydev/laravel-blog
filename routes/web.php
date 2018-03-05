@@ -20,6 +20,12 @@ Route::get('about', 'PagesController@getAbout');
 Route::get('/', 'PagesController@getIndex');
 Route::resource('posts', 'PostController');
 
+//Projects
+Route::get('projects/{slug}', ['as' => 'projects.single', 'uses' => 'ProjectController@getSingle'])->where('slug', '[\w\d\-\_]+');
+Route::get('projects', ['uses' => 'ProjectController@getIndex', 'as' => 'projects.index']);
+//repos chosen as url for owner, so projects will be available for users
+Route::resource('repos', 'ProjectController');
+
 
 //Authentication
 Auth::routes();

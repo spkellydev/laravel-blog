@@ -4,7 +4,9 @@
 @section('meta_title', 'SPK.Design | Sean Kelly - Full Stack Web Developer')
 @section('meta_description', "Hello! My name is Sean Kelly and I am a full stack developer. My areas of interest are PHP, Node, Vue, React, and Express. Feel free to say hi!")
 
-
+@section('components')
+{!! Html::script('./js/app.js') !!}
+@endsection
 
 @section('content')
   <div id="app">
