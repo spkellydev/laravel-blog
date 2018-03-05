@@ -18,6 +18,7 @@ class CreateProjectsTable extends Migration
             $table->string('title');
             $table->text('body');
             $table->string('technology');
+            $table->string('github');
             $table->timestamps();
         });
     }

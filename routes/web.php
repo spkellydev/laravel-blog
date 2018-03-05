@@ -21,7 +21,9 @@ Route::get('/', 'PagesController@getIndex');
 Route::resource('posts', 'PostController');
 
 //Projects
-Route::resource('projects', 'ProjectController');
+Route::get('projects', ['uses' => 'ProjectController@getIndex', 'as' => 'projects.index']);
+//repos chosen as url for owner, so projects will be available for users
+Route::resource('repos', 'ProjectController');
 
 
 //Authentication
